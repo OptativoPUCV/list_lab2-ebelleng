@@ -52,8 +52,14 @@ void * lastList(List * list) {
 }
 
 void * prevList(List * list) {
-  list->current = list->current->prev;
-  return list->current;
+  if( list->current ){
+    list->current = list->current->prev;
+    return list->current;
+  }
+  else{
+    return NULL;
+  }
+  
 }
 
 void pushFront(List * list, const void * data) {
