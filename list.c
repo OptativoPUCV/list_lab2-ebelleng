@@ -39,11 +39,11 @@ void * firstList(List * list) {
 }
 
 void * nextList(List * list) {
-  if ( list->current )
+  if ( list->current ){
     list->current = list->current->next;
-  else
-    list->current = NULL;
-  return list->current->data;
+    return list->current->data;
+  }
+  return NULL;
 }
 
 void * lastList(List * list) {
