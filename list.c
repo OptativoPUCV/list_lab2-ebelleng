@@ -116,7 +116,7 @@ void * popCurrent(List * list) {
 
   Node* aux = list->current;
 
-  (list->current->prev)->next = aux->next;
+  (aux->prev)->next = aux->next;
   (list->current->next)->prev = aux->prev;
   list->current = list->current->next;
   const void* data = aux->data;
