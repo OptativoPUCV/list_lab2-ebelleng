@@ -120,7 +120,7 @@ void * popCurrent(List * list) {
   (list->current->next)->prev = aux->prev;
   list->current = list->current->next;
   const void* data = aux->data;
-  free(list->current);
+  
   return (void*) data;
 }
 
