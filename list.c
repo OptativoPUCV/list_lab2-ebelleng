@@ -115,7 +115,7 @@ void * popCurrent(List * list) {
 
   if(list->current == list->head){
     printf("que pasa si\n");
-    popFront(list);
+    return popFront(list);
   }
 
 
