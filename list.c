@@ -128,7 +128,7 @@ void * popCurrent(List * list) {
             aux->prev->next = aux->next;
         }
     }
-    const void* data = list->current->data;
+    const void* data = aux->data;
     list->current = aux->next;
     return (void*) data;
 }
