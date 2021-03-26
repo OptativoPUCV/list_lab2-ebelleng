@@ -111,14 +111,12 @@ void * popBack(List * list) {
 }
 
 void * popCurrent(List * list) {
-  if(list == NULL) return NULL;
   if (list->head == NULL || list->current == NULL) return NULL;
     
   Node * aux = list->current;
   
   if (list->current == list->head) {
-    
-      return popFront(list);
+    return popFront(list);
   } else if (list->current == list->tail) {
       return popBack(list); 
   } else {
