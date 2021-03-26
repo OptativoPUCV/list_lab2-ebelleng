@@ -132,8 +132,6 @@ void * popCurrent(List * list) {
     void * data = (void*) aux->data;
 
     list->current = aux->next;
-
-    free(aux);
     return data;
 }
 
