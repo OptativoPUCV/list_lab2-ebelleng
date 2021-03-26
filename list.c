@@ -128,11 +128,9 @@ void * popCurrent(List * list) {
             aux->prev->next = aux->next;
         }
     }
-
-    void * data = (void*) aux->data;
-
+    const void* data = list->current->data;
     list->current = aux->next;
-    return data;
+    return (void*) data;
 }
 
 void cleanList(List * list) {
