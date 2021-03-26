@@ -117,7 +117,7 @@ void * popCurrent(List * list) {
   Node * aux = list->current;
   
   if (list->current == list->head) {
-    printf("head");
+    
       return popFront(list);
   } else if (list->current == list->tail) {
       return popBack(list); 
