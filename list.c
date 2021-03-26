@@ -113,8 +113,11 @@ void * popBack(List * list) {
 void * popCurrent(List * list) {
   if(list==NULL || list->head == NULL || list->tail == NULL) return NULL;
 
-  if(list->current == list->head) return popFront(list);
-  
+  if(list->current == list->head){
+    printf("que pasa si\n");
+  }
+
+
 
   return NULL;
 }
