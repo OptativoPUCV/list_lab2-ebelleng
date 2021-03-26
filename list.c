@@ -112,15 +112,16 @@ void * popBack(List * list) {
 
 void * popCurrent(List * list) {
   if(list==NULL || list->head == NULL || list->tail == NULL) return NULL;
+  if( list->current == NULL) return NULL;
 
-  if(list->current == list->head){
-    printf("que pasa si");
-    return popFront(list);
-  }
+  Node* aux = list->current;
 
-
-
-  return NULL;
+  (list->current->prev)->next = aux->next;
+  (list->current->next)->prev = aux->prev;
+  list->current = list->current->next;
+  const void* data = aux->data;
+  free(list->current);
+  return (void*) data;
 }
 
 void cleanList(List * list) {
