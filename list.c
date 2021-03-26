@@ -20,7 +20,7 @@ struct List {
 
 typedef List List;
 
-Node * createNode(void * data) {
+Node * createNode(const void * data) {
     Node * new = (Node *)malloc(sizeof(Node));
     assert(new != NULL);
     new->data = data;
@@ -62,6 +62,17 @@ void * prevList(List * list) {
 }
 
 void pushFront(List * list, const void * data) {
+  Node* nuevoNodo = createNode(data);
+  if( list == NULL ){
+    list = createList();
+    list->head = nuevoNodo;
+  }
+  else{
+    list->current = list->head;
+    list->head = nuevoNodo;
+    nuevoNodo->next = list->current;
+    list->current = nuevoNodo;
+  }
 }
 
 void pushBack(List * list, const void * data) {
