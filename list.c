@@ -6,7 +6,7 @@
 typedef struct Node Node;
 
 struct Node {
-    void * data;
+    const void * data;
     Node * next;
     Node * prev;
 };
@@ -16,6 +16,7 @@ struct List {
     Node * tail;
     Node * current;
 };
+
 
 typedef List List;
 
@@ -35,13 +36,14 @@ List * createList() {
 
 void * firstList(List * list) {
   list->current = list->head;
-  return list->current->data;
+  const void* data = list->current->data;
+  return (void*) data;
 }
 
 void * nextList(List * list) {
   if ( list->current->next ){
     list->current = list->current->next;
-    return list->current->data;
+    return (void*)list->current->data;
   }
   return NULL;
 }
