@@ -114,24 +114,25 @@ void * popCurrent(List * list) {
   if(list == NULL) return NULL;
   if (list->head == NULL || list->current == NULL) return NULL;
     
-    Node * aux = list->current;
-    printf("aqui");
-    if (list->current == list->head) {
-        return popFront(list);
-    } else if (list->current == list->tail) {
-        return popBack(list); 
-    } else {
-        if (aux->next != NULL) {
-            aux->next->prev = aux->prev;
-        }
+  Node * aux = list->current;
+  
+  if (list->current == list->head) {
+    printf("head");
+      return popFront(list);
+  } else if (list->current == list->tail) {
+      return popBack(list); 
+  } else {
+      if (aux->next != NULL) {
+          aux->next->prev = aux->prev;
+      }
 
-        if (aux->prev != NULL) {
-            aux->prev->next = aux->next;
-        }
-    }
-    const void* data = aux->data;
-    list->current = aux->next;
-    return (void*) data;
+      if (aux->prev != NULL) {
+          aux->prev->next = aux->next;
+      }
+  }
+  const void* data = aux->data;
+  list->current = aux->next;
+  return (void*) data;
 }
 
 void cleanList(List * list) {
